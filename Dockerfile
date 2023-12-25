@@ -4,9 +4,9 @@ RUN rm /etc/apt/sources.list.d/cuda.list
 
 RUN apt update \
     && apt -y install wget \
-    && wget https://github.com/OneZeroMiner/onezerominer/releases/download/v1.2.7/onezerominer-linux-1.2.7.tar.gz \
-    && tar xvzf onezerominer-linux-1.2.7.tar.gz \
-    && rm onezerominer-linux-1.2.7.tar.gz
+    && wget https://github.com/OneZeroMiner/onezerominer/releases/download/v1.2.8/onezerominer-linux-1.2.8.tar.gz \
+    && tar xvzf onezerominer-linux-1.2.8.tar.gz \
+    && rm onezerominer-linux-1.2.8.tar.gz
 
 WORKDIR /onezerominer-linux
 
