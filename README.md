@@ -9,8 +9,9 @@ Image: [`swamp7/onezerominer`](https://hub.docker.com/r/swamp7/onezerominer)
 
 | Tag | OneZeroMiner version | Notes |
 |---|---|---|
-| `swamp7/onezerominer:latest` | 1.8.1 | rolls forward with each release |
-| `swamp7/onezerominer:1.8.1` | 1.8.1 | Quantus perf +3%; NVIDIA driver 615+ compatibility fix; WSL2 init fix; NVML load fix; HiveOS stat + `-d` fix |
+| `swamp7/onezerominer:latest` | 1.8.2 | rolls forward with each release |
+| `swamp7/onezerominer:1.8.2` | 1.8.2 | **NEW: Parano1d (poseidon2b) algo on all NVIDIA GPUs — 1% dev fee** (half SRBMiner's 2%); pearlhash efficiency +4–6% on Ampere/Ada/Blackwell; +~4% on Hopper + Blackwell datacenter (H100 → 807 TH/s); **NEW: Volta (V100 / CMP100-210) pearlhash support**; Turing 2000 series mem-810 kernel via `--kernel 2` (auto-selected); default kernel switched to kernel 2 for all other generations |
+| `swamp7/onezerominer:1.8.2` | 1.8.1 | Quantus perf +3%; NVIDIA driver 615+ compatibility fix; WSL2 init fix; NVML load fix; HiveOS stat + `-d` fix |
 
 ## Supported algorithms
 
@@ -34,7 +35,7 @@ Bundled example scripts live inside the image at `/onezerominer/` —
 ## Usage
 
 ```bash
-docker run --gpus all swamp7/onezerominer:1.8.1 \
+docker run --gpus all swamp7/onezerominer:1.8.2 \
     -a pearl \
     -w prl1pYOUR_PRL_ADDRESS \
     -o stratum+tcp://prl.suprnova.cc:3373

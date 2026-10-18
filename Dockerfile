@@ -1,6 +1,6 @@
 FROM nvidia/cuda:13.0.3-runtime-ubuntu24.04
 
-ARG OZM_VERSION=1.8.1
+ARG OZM_VERSION=1.8.2
 ARG TARBALL_URL=https://github.com/OneZeroMiner/onezerominer/releases/download/v${OZM_VERSION}/onezerominer-linux-${OZM_VERSION}.tar.gz
 
 RUN rm -f /etc/apt/sources.list.d/cuda.list
