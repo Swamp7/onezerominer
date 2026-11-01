@@ -9,9 +9,11 @@ Image: [`swamp7/onezerominer`](https://hub.docker.com/r/swamp7/onezerominer)
 
 | Tag | OneZeroMiner version | Notes |
 |---|---|---|
-| `swamp7/onezerominer:latest` | 1.8.2 | rolls forward with each release |
-| `swamp7/onezerominer:1.8.2` | 1.8.2 | **NEW: Parano1d (poseidon2b) algo on all NVIDIA GPUs — 1% dev fee** (half SRBMiner's 2%); pearlhash efficiency +4–6% on Ampere/Ada/Blackwell; +~4% on Hopper + Blackwell datacenter (H100 → 807 TH/s); **NEW: Volta (V100 / CMP100-210) pearlhash support**; Turing 2000 series mem-810 kernel via `--kernel 2` (auto-selected); default kernel switched to kernel 2 for all other generations |
-| `swamp7/onezerominer:1.8.2` | 1.8.1 | Quantus perf +3%; NVIDIA driver 615+ compatibility fix; WSL2 init fix; NVML load fix; HiveOS stat + `-d` fix |
+| `swamp7/onezerominer:latest` | 1.8.4 | rolls forward with each release |
+| `swamp7/onezerominer:1.8.4` | 1.8.4 | pearlhash efficiency +2% on RTX 3000/4000/5000; minor Turing (RTX 2000 + CMP 50HX) kernel-1/-2 bumps; **NEW `--core-delay` option** (apply core clocks + offset after N-second delay from startup — useful for staggering OC on cold rigs) |
+| `swamp7/onezerominer:1.8.3` | 1.8.3 | pearlhash perf bump on RTX 2000/3000/4000/5000 locked-mem-810 kernel; **FIX: H100 invalid-proof-size bug from 1.8.2**; fix for rejected shares when GPU is shared with another process; quantus +2–4% (~10% on A100/H100); Parano1d perf bump |
+| `swamp7/onezerominer:1.8.4` | 1.8.2 | Parano1d (poseidon2b) algo on all NVIDIA GPUs — 1% dev fee; pearlhash efficiency +4–6% on Ampere/Ada/Blackwell; +~4% on Hopper + Blackwell datacenter; Volta (V100 / CMP100-210) pearlhash support; Turing 2000 series mem-810 kernel via `--kernel 2`. **⚠️ H100 produces invalid proofs — use 1.8.3+ on H100.** |
+| `swamp7/onezerominer:1.8.4` | 1.8.1 | Quantus perf +3%; NVIDIA driver 615+ compatibility fix; WSL2 init fix; NVML load fix; HiveOS stat + `-d` fix |
 
 ## Supported algorithms
 
@@ -35,7 +37,7 @@ Bundled example scripts live inside the image at `/onezerominer/` —
 ## Usage
 
 ```bash
-docker run --gpus all swamp7/onezerominer:1.8.2 \
+docker run --gpus all swamp7/onezerominer:1.8.4 \
     -a pearl \
     -w prl1pYOUR_PRL_ADDRESS \
     -o stratum+tcp://prl.suprnova.cc:3373
